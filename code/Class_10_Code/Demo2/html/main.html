@@ -1,0 +1,217 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>main</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-11-01"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">I. &#28165;&#31354;&#29615;&#22659;</a></li><li><a href="#2">II. &#32472;&#21046;&#30446;&#26631;&#20989;&#25968;&#26354;&#32447;</a></li><li><a href="#3">III. &#21442;&#25968;&#21021;&#22987;&#21270;</a></li><li><a href="#4">IV. &#20135;&#29983;&#21021;&#22987;&#31890;&#23376;&#21644;&#36895;&#24230;</a></li><li><a href="#5">V. &#20010;&#20307;&#26497;&#20540;&#21644;&#32676;&#20307;&#26497;&#20540;</a></li><li><a href="#6">VI. &#36845;&#20195;&#23547;&#20248;</a></li><li><a href="#7">VII.&#36755;&#20986;&#32467;&#26524;</a></li></ul></div><h2>I. &#28165;&#31354;&#29615;&#22659;<a name="1"></a></h2><pre class="codeinput">clc
+clear
+</pre><h2>II. &#32472;&#21046;&#30446;&#26631;&#20989;&#25968;&#26354;&#32447;<a name="2"></a></h2><pre class="codeinput">figure
+[x,y] = meshgrid(-5:0.1:5,-5:0.1:5);
+z = x.^2 + y.^2 - 10*cos(2*pi*x) - 10*cos(2*pi*y) + 20;
+mesh(x,y,z)
+hold <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <h2>III. &#21442;&#25968;&#21021;&#22987;&#21270;<a name="3"></a></h2><pre class="codeinput">c1 = 1.49445;
+c2 = 1.49445;
+
+maxgen = 1000;   <span class="comment">% &#36827;&#21270;&#27425;&#25968;</span>
+sizepop = 100;   <span class="comment">%&#31181;&#32676;&#35268;&#27169;</span>
+
+Vmax = 1;
+Vmin = -1;
+popmax = 5;
+popmin = -5;
+</pre><h2>IV. &#20135;&#29983;&#21021;&#22987;&#31890;&#23376;&#21644;&#36895;&#24230;<a name="4"></a></h2><pre class="codeinput"><span class="keyword">for</span> i = 1:sizepop
+    <span class="comment">% &#38543;&#26426;&#20135;&#29983;&#19968;&#20010;&#31181;&#32676;</span>
+    pop(i,:) = 5*rands(1,2);    <span class="comment">%&#21021;&#22987;&#31181;&#32676;</span>
+    V(i,:) = rands(1,2);  <span class="comment">%&#21021;&#22987;&#21270;&#36895;&#24230;</span>
+    <span class="comment">% &#35745;&#31639;&#36866;&#24212;&#24230;</span>
+    fitness(i) = fun(pop(i,:));   <span class="comment">%&#26579;&#33394;&#20307;&#30340;&#36866;&#24212;&#24230;</span>
+<span class="keyword">end</span>
+</pre><h2>V. &#20010;&#20307;&#26497;&#20540;&#21644;&#32676;&#20307;&#26497;&#20540;<a name="5"></a></h2><pre class="codeinput">[bestfitness bestindex] = max(fitness);
+zbest = pop(bestindex,:);   <span class="comment">%&#20840;&#23616;&#26368;&#20339;</span>
+gbest = pop;    <span class="comment">%&#20010;&#20307;&#26368;&#20339;</span>
+fitnessgbest = fitness;   <span class="comment">%&#20010;&#20307;&#26368;&#20339;&#36866;&#24212;&#24230;&#20540;</span>
+fitnesszbest = bestfitness;   <span class="comment">%&#20840;&#23616;&#26368;&#20339;&#36866;&#24212;&#24230;&#20540;</span>
+</pre><h2>VI. &#36845;&#20195;&#23547;&#20248;<a name="6"></a></h2><pre class="codeinput"><span class="keyword">for</span> i = 1:maxgen
+
+    <span class="keyword">for</span> j = 1:sizepop
+        <span class="comment">% &#36895;&#24230;&#26356;&#26032;</span>
+        V(j,:) = V(j,:) + c1*rand*(gbest(j,:) - pop(j,:)) + c2*rand*(zbest - pop(j,:));
+        V(j,find(V(j,:)&gt;Vmax)) = Vmax;
+        V(j,find(V(j,:)&lt;Vmin)) = Vmin;
+
+        <span class="comment">% &#31181;&#32676;&#26356;&#26032;</span>
+        pop(j,:) = pop(j,:) + V(j,:);
+        pop(j,find(pop(j,:)&gt;popmax)) = popmax;
+        pop(j,find(pop(j,:)&lt;popmin)) = popmin;
+
+        <span class="comment">% &#36866;&#24212;&#24230;&#20540;&#26356;&#26032;</span>
+        fitness(j) = fun(pop(j,:));
+    <span class="keyword">end</span>
+
+    <span class="keyword">for</span> j = 1:sizepop
+        <span class="comment">% &#20010;&#20307;&#26368;&#20248;&#26356;&#26032;</span>
+        <span class="keyword">if</span> fitness(j) &gt; fitnessgbest(j)
+            gbest(j,:) = pop(j,:);
+            fitnessgbest(j) = fitness(j);
+        <span class="keyword">end</span>
+
+        <span class="comment">% &#32676;&#20307;&#26368;&#20248;&#26356;&#26032;</span>
+        <span class="keyword">if</span> fitness(j) &gt; fitnesszbest
+            zbest = pop(j,:);
+            fitnesszbest = fitness(j);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    yy(i) = fitnesszbest;
+<span class="keyword">end</span>
+</pre><h2>VII.&#36755;&#20986;&#32467;&#26524;<a name="7"></a></h2><pre class="codeinput">[fitnesszbest, zbest]
+plot3(zbest(1), zbest(2), fitnesszbest,<span class="string">'bo'</span>,<span class="string">'linewidth'</span>,1.5)
+
+figure
+plot(yy)
+title(<span class="string">'&#26368;&#20248;&#20010;&#20307;&#36866;&#24212;&#24230;'</span>,<span class="string">'fontsize'</span>,12);
+xlabel(<span class="string">'&#36827;&#21270;&#20195;&#25968;'</span>,<span class="string">'fontsize'</span>,12);ylabel(<span class="string">'&#36866;&#24212;&#24230;'</span>,<span class="string">'fontsize'</span>,12);
+</pre><pre class="codeoutput">
+ans =
+
+   80.7066   -4.5232   -4.5232
+
+</pre><img vspace="5" hspace="5" src="main_02.png" alt=""> <img vspace="5" hspace="5" src="main_03.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+%% I. 清空环境
+clc
+clear
+
+%% II. 绘制目标函数曲线
+figure
+[x,y] = meshgrid(-5:0.1:5,-5:0.1:5);
+z = x.^2 + y.^2 - 10*cos(2*pi*x) - 10*cos(2*pi*y) + 20;
+mesh(x,y,z)
+hold on
+
+%% III. 参数初始化
+c1 = 1.49445;
+c2 = 1.49445;
+
+maxgen = 1000;   % 进化次数  
+sizepop = 100;   %种群规模
+
+Vmax = 1;
+Vmin = -1;
+popmax = 5;
+popmin = -5;
+
+%% IV. 产生初始粒子和速度
+for i = 1:sizepop
+    % 随机产生一个种群
+    pop(i,:) = 5*rands(1,2);    %初始种群
+    V(i,:) = rands(1,2);  %初始化速度
+    % 计算适应度
+    fitness(i) = fun(pop(i,:));   %染色体的适应度
+end
+
+%% V. 个体极值和群体极值
+[bestfitness bestindex] = max(fitness);
+zbest = pop(bestindex,:);   %全局最佳
+gbest = pop;    %个体最佳
+fitnessgbest = fitness;   %个体最佳适应度值
+fitnesszbest = bestfitness;   %全局最佳适应度值
+
+%% VI. 迭代寻优
+for i = 1:maxgen
+    
+    for j = 1:sizepop
+        % 速度更新
+        V(j,:) = V(j,:) + c1*rand*(gbest(j,:) - pop(j,:)) + c2*rand*(zbest - pop(j,:));
+        V(j,find(V(j,:)>Vmax)) = Vmax;
+        V(j,find(V(j,:)<Vmin)) = Vmin;
+        
+        % 种群更新
+        pop(j,:) = pop(j,:) + V(j,:);
+        pop(j,find(pop(j,:)>popmax)) = popmax;
+        pop(j,find(pop(j,:)<popmin)) = popmin;
+        
+        % 适应度值更新
+        fitness(j) = fun(pop(j,:)); 
+    end
+    
+    for j = 1:sizepop  
+        % 个体最优更新
+        if fitness(j) > fitnessgbest(j)
+            gbest(j,:) = pop(j,:);
+            fitnessgbest(j) = fitness(j);
+        end
+        
+        % 群体最优更新
+        if fitness(j) > fitnesszbest
+            zbest = pop(j,:);
+            fitnesszbest = fitness(j);
+        end
+    end 
+    yy(i) = fitnesszbest;            
+end
+%% VII.输出结果
+[fitnesszbest, zbest]
+plot3(zbest(1), zbest(2), fitnesszbest,'bo','linewidth',1.5)
+
+figure
+plot(yy)
+title('最优个体适应度','fontsize',12);
+xlabel('进化代数','fontsize',12);ylabel('适应度','fontsize',12);
+
+
+##### SOURCE END #####
+--></body></html>

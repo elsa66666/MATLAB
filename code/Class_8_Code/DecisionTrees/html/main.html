@@ -1,0 +1,298 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>main</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-10-17"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;</a></li><li><a href="#2">II. &#23548;&#20837;&#25968;&#25454;</a></li><li><a href="#6">III. &#21019;&#24314;&#20915;&#31574;&#26641;&#20998;&#31867;&#22120;</a></li><li><a href="#8">IV. &#20223;&#30495;&#27979;&#35797;</a></li><li><a href="#9">V. &#32467;&#26524;&#20998;&#26512;</a></li><li><a href="#10">VI. &#21494;&#23376;&#33410;&#28857;&#21547;&#26377;&#30340;&#26368;&#23567;&#26679;&#26412;&#25968;&#23545;&#20915;&#31574;&#26641;&#24615;&#33021;&#30340;&#24433;&#21709;</a></li><li><a href="#11">VII. &#35774;&#32622;minleaf&#20026;28&#65292;&#20135;&#29983;&#20248;&#21270;&#20915;&#31574;&#26641;</a></li><li><a href="#14">VIII. &#21098;&#26525;</a></li></ul></div><h2>I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>
+clc
+warning <span class="string">off</span>
+</pre><h2>II. &#23548;&#20837;&#25968;&#25454;<a name="2"></a></h2><pre class="codeinput">load <span class="string">data.mat</span>
+</pre><p>1. &#38543;&#26426;&#20135;&#29983;&#35757;&#32451;&#38598;/&#27979;&#35797;&#38598;</p><pre class="codeinput">a = randperm(569);
+Train = data(a(1:500),:);
+Test = data(a(501:end),:);
+</pre><p>2. &#35757;&#32451;&#25968;&#25454;</p><pre class="codeinput">P_train = Train(:,3:end);
+T_train = Train(:,2);
+</pre><p>3. &#27979;&#35797;&#25968;&#25454;</p><pre class="codeinput">P_test = Test(:,3:end);
+T_test = Test(:,2);
+</pre><h2>III. &#21019;&#24314;&#20915;&#31574;&#26641;&#20998;&#31867;&#22120;<a name="6"></a></h2><pre class="codeinput">ctree = ClassificationTree.fit(P_train,T_train);
+</pre><p>1. &#26597;&#30475;&#20915;&#31574;&#26641;&#35270;&#22270;</p><pre class="codeinput">view(ctree);
+view(ctree,<span class="string">'mode'</span>,<span class="string">'graph'</span>);
+</pre><pre class="codeoutput">
+Decision tree for classification
+ 1  if x21&lt;16.79 then node 2 elseif x21&gt;=16.79 then node 3 else 1
+ 2  if x28&lt;0.1603 then node 4 elseif x28&gt;=0.1603 then node 5 else 1
+ 3  if x7&lt;0.07214 then node 6 elseif x7&gt;=0.07214 then node 7 else 2
+ 4  if x28&lt;0.1358 then node 8 elseif x28&gt;=0.1358 then node 9 else 1
+ 5  if x22&lt;23.47 then node 10 elseif x22&gt;=23.47 then node 11 else 2
+ 6  if x2&lt;18.835 then node 12 elseif x2&gt;=18.835 then node 13 else 2
+ 7  class = 2
+ 8  if x11&lt;1.04755 then node 14 elseif x11&gt;=1.04755 then node 15 else 1
+ 9  if x2&lt;20.785 then node 16 elseif x2&gt;=20.785 then node 17 else 1
+10  class = 1
+11  class = 2
+12  class = 1
+13  if x5&lt;0.076425 then node 18 elseif x5&gt;=0.076425 then node 19 else 2
+14  if x14&lt;38.605 then node 20 elseif x14&gt;=38.605 then node 21 else 1
+15  class = 2
+16  if x24&lt;811.1 then node 22 elseif x24&gt;=811.1 then node 23 else 1
+17  class = 2
+18  class = 1
+19  class = 2
+20  class = 1
+21  if x6&lt;0.05957 then node 24 elseif x6&gt;=0.05957 then node 25 else 1
+22  class = 1
+23  class = 2
+24  class = 2
+25  if x11&lt;0.4212 then node 26 elseif x11&gt;=0.4212 then node 27 else 1
+26  class = 2
+27  class = 1
+
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <h2>IV. &#20223;&#30495;&#27979;&#35797;<a name="8"></a></h2><pre class="codeinput">T_sim = predict(ctree,P_test);
+</pre><h2>V. &#32467;&#26524;&#20998;&#26512;<a name="9"></a></h2><pre class="codeinput">count_B = length(find(T_train == 1));
+count_M = length(find(T_train == 2));
+rate_B = count_B / 500;
+rate_M = count_M / 500;
+total_B = length(find(data(:,2) == 1));
+total_M = length(find(data(:,2) == 2));
+number_B = length(find(T_test == 1));
+number_M = length(find(T_test == 2));
+number_B_sim = length(find(T_sim == 1 &amp; T_test == 1));
+number_M_sim = length(find(T_sim == 2 &amp; T_test == 2));
+disp([<span class="string">'&#30149;&#20363;&#24635;&#25968;&#65306;'</span> num2str(569)<span class="keyword">...</span>
+      <span class="string">'  &#33391;&#24615;&#65306;'</span> num2str(total_B)<span class="keyword">...</span>
+      <span class="string">'  &#24694;&#24615;&#65306;'</span> num2str(total_M)]);
+disp([<span class="string">'&#35757;&#32451;&#38598;&#30149;&#20363;&#24635;&#25968;&#65306;'</span> num2str(500)<span class="keyword">...</span>
+      <span class="string">'  &#33391;&#24615;&#65306;'</span> num2str(count_B)<span class="keyword">...</span>
+      <span class="string">'  &#24694;&#24615;&#65306;'</span> num2str(count_M)]);
+disp([<span class="string">'&#27979;&#35797;&#38598;&#30149;&#20363;&#24635;&#25968;&#65306;'</span> num2str(69)<span class="keyword">...</span>
+      <span class="string">'  &#33391;&#24615;&#65306;'</span> num2str(number_B)<span class="keyword">...</span>
+      <span class="string">'  &#24694;&#24615;&#65306;'</span> num2str(number_M)]);
+disp([<span class="string">'&#33391;&#24615;&#20083;&#33146;&#32959;&#30244;&#30830;&#35786;&#65306;'</span> num2str(number_B_sim)<span class="keyword">...</span>
+      <span class="string">'  &#35823;&#35786;&#65306;'</span> num2str(number_B - number_B_sim)<span class="keyword">...</span>
+      <span class="string">'  &#30830;&#35786;&#29575;p1='</span> num2str(number_B_sim/number_B*100) <span class="string">'%'</span>]);
+disp([<span class="string">'&#24694;&#24615;&#20083;&#33146;&#32959;&#30244;&#30830;&#35786;&#65306;'</span> num2str(number_M_sim)<span class="keyword">...</span>
+      <span class="string">'  &#35823;&#35786;&#65306;'</span> num2str(number_M - number_M_sim)<span class="keyword">...</span>
+      <span class="string">'  &#30830;&#35786;&#29575;p2='</span> num2str(number_M_sim/number_M*100) <span class="string">'%'</span>]);
+</pre><pre class="codeoutput">&#30149;&#20363;&#24635;&#25968;&#65306;569  &#33391;&#24615;&#65306;357  &#24694;&#24615;&#65306;212
+&#35757;&#32451;&#38598;&#30149;&#20363;&#24635;&#25968;&#65306;500  &#33391;&#24615;&#65306;310  &#24694;&#24615;&#65306;190
+&#27979;&#35797;&#38598;&#30149;&#20363;&#24635;&#25968;&#65306;69  &#33391;&#24615;&#65306;47  &#24694;&#24615;&#65306;22
+&#33391;&#24615;&#20083;&#33146;&#32959;&#30244;&#30830;&#35786;&#65306;46  &#35823;&#35786;&#65306;1  &#30830;&#35786;&#29575;p1=97.8723%
+&#24694;&#24615;&#20083;&#33146;&#32959;&#30244;&#30830;&#35786;&#65306;20  &#35823;&#35786;&#65306;2  &#30830;&#35786;&#29575;p2=90.9091%
+</pre><h2>VI. &#21494;&#23376;&#33410;&#28857;&#21547;&#26377;&#30340;&#26368;&#23567;&#26679;&#26412;&#25968;&#23545;&#20915;&#31574;&#26641;&#24615;&#33021;&#30340;&#24433;&#21709;<a name="10"></a></h2><pre class="codeinput">leafs = logspace(1,2,10);
+
+N = numel(leafs);
+
+err = zeros(N,1);
+<span class="keyword">for</span> n = 1:N
+    t = ClassificationTree.fit(P_train,T_train,<span class="string">'crossval'</span>,<span class="string">'on'</span>,<span class="string">'minleaf'</span>,leafs(n));
+    err(n) = kfoldLoss(t);
+<span class="keyword">end</span>
+plot(leafs,err);
+xlabel(<span class="string">'&#21494;&#23376;&#33410;&#28857;&#21547;&#26377;&#30340;&#26368;&#23567;&#26679;&#26412;&#25968;'</span>);
+ylabel(<span class="string">'&#20132;&#21449;&#39564;&#35777;&#35823;&#24046;'</span>);
+title(<span class="string">'&#21494;&#23376;&#33410;&#28857;&#21547;&#26377;&#30340;&#26368;&#23567;&#26679;&#26412;&#25968;&#23545;&#20915;&#31574;&#26641;&#24615;&#33021;&#30340;&#24433;&#21709;'</span>)
+</pre><img vspace="5" hspace="5" src="main_02.png" alt=""> <h2>VII. &#35774;&#32622;minleaf&#20026;28&#65292;&#20135;&#29983;&#20248;&#21270;&#20915;&#31574;&#26641;<a name="11"></a></h2><pre class="codeinput">OptimalTree = ClassificationTree.fit(P_train,T_train,<span class="string">'minleaf'</span>,28);
+view(OptimalTree,<span class="string">'mode'</span>,<span class="string">'graph'</span>)
+</pre><img vspace="5" hspace="5" src="main_03.png" alt=""> <p>1. &#35745;&#31639;&#20248;&#21270;&#21518;&#20915;&#31574;&#26641;&#30340;&#37325;&#37319;&#26679;&#35823;&#24046;&#21644;&#20132;&#21449;&#39564;&#35777;&#35823;&#24046;</p><pre class="codeinput">resubOpt = resubLoss(OptimalTree)
+lossOpt = kfoldLoss(crossval(OptimalTree))
+</pre><pre class="codeoutput">
+resubOpt =
+
+    0.0640
+
+
+lossOpt =
+
+    0.0980
+
+</pre><p>2. &#35745;&#31639;&#20248;&#21270;&#21069;&#20915;&#31574;&#26641;&#30340;&#37325;&#37319;&#26679;&#35823;&#24046;&#21644;&#20132;&#21449;&#39564;&#35777;&#35823;&#24046;</p><pre class="codeinput">resubDefault = resubLoss(ctree)
+lossDefault = kfoldLoss(crossval(ctree))
+</pre><pre class="codeoutput">
+resubDefault =
+
+    0.0060
+
+
+lossDefault =
+
+    0.0860
+
+</pre><h2>VIII. &#21098;&#26525;<a name="14"></a></h2><pre class="codeinput">[~,~,~,bestlevel] = cvLoss(ctree,<span class="string">'subtrees'</span>,<span class="string">'all'</span>,<span class="string">'treesize'</span>,<span class="string">'min'</span>)
+cptree = prune(ctree,<span class="string">'Level'</span>,bestlevel);
+view(cptree,<span class="string">'mode'</span>,<span class="string">'graph'</span>)
+</pre><pre class="codeoutput">
+bestlevel =
+
+     3
+
+</pre><img vspace="5" hspace="5" src="main_04.png" alt=""> <p>1. &#35745;&#31639;&#21098;&#26525;&#21518;&#20915;&#31574;&#26641;&#30340;&#37325;&#37319;&#26679;&#35823;&#24046;&#21644;&#20132;&#21449;&#39564;&#35777;&#35823;&#24046;</p><pre class="codeinput">resubPrune = resubLoss(cptree)
+lossPrune = kfoldLoss(crossval(cptree))
+</pre><pre class="codeoutput">
+resubPrune =
+
+    0.0200
+
+
+lossPrune =
+
+    0.0740
+
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+%% I. 清空环境变量
+clear all
+clc
+warning off
+
+%% II. 导入数据
+load data.mat
+
+%%
+% 1. 随机产生训练集/测试集
+a = randperm(569);
+Train = data(a(1:500),:);
+Test = data(a(501:end),:);
+
+%%
+% 2. 训练数据
+P_train = Train(:,3:end);
+T_train = Train(:,2);
+
+%%
+% 3. 测试数据
+P_test = Test(:,3:end);
+T_test = Test(:,2);
+
+%% III. 创建决策树分类器
+ctree = ClassificationTree.fit(P_train,T_train);
+
+%%
+% 1. 查看决策树视图
+view(ctree);
+view(ctree,'mode','graph');
+
+%% IV. 仿真测试
+T_sim = predict(ctree,P_test);
+
+%% V. 结果分析
+count_B = length(find(T_train == 1));
+count_M = length(find(T_train == 2));
+rate_B = count_B / 500;
+rate_M = count_M / 500;
+total_B = length(find(data(:,2) == 1));
+total_M = length(find(data(:,2) == 2));
+number_B = length(find(T_test == 1));
+number_M = length(find(T_test == 2));
+number_B_sim = length(find(T_sim == 1 & T_test == 1));
+number_M_sim = length(find(T_sim == 2 & T_test == 2));
+disp(['病例总数：' num2str(569)...
+      '  良性：' num2str(total_B)...
+      '  恶性：' num2str(total_M)]);
+disp(['训练集病例总数：' num2str(500)...
+      '  良性：' num2str(count_B)...
+      '  恶性：' num2str(count_M)]);
+disp(['测试集病例总数：' num2str(69)...
+      '  良性：' num2str(number_B)...
+      '  恶性：' num2str(number_M)]);
+disp(['良性乳腺肿瘤确诊：' num2str(number_B_sim)...
+      '  误诊：' num2str(number_B - number_B_sim)...
+      '  确诊率p1=' num2str(number_B_sim/number_B*100) '%']);
+disp(['恶性乳腺肿瘤确诊：' num2str(number_M_sim)...
+      '  误诊：' num2str(number_M - number_M_sim)...
+      '  确诊率p2=' num2str(number_M_sim/number_M*100) '%']);
+  
+%% VI. 叶子节点含有的最小样本数对决策树性能的影响
+leafs = logspace(1,2,10);
+
+N = numel(leafs);
+
+err = zeros(N,1);
+for n = 1:N
+    t = ClassificationTree.fit(P_train,T_train,'crossval','on','minleaf',leafs(n));
+    err(n) = kfoldLoss(t);
+end
+plot(leafs,err);
+xlabel('叶子节点含有的最小样本数');
+ylabel('交叉验证误差');
+title('叶子节点含有的最小样本数对决策树性能的影响')
+
+%% VII. 设置minleaf为28，产生优化决策树
+OptimalTree = ClassificationTree.fit(P_train,T_train,'minleaf',28);
+view(OptimalTree,'mode','graph')
+
+%%
+% 1. 计算优化后决策树的重采样误差和交叉验证误差
+resubOpt = resubLoss(OptimalTree)
+lossOpt = kfoldLoss(crossval(OptimalTree))
+
+%%
+% 2. 计算优化前决策树的重采样误差和交叉验证误差
+resubDefault = resubLoss(ctree)
+lossDefault = kfoldLoss(crossval(ctree))
+
+%% VIII. 剪枝
+[~,~,~,bestlevel] = cvLoss(ctree,'subtrees','all','treesize','min')
+cptree = prune(ctree,'Level',bestlevel);
+view(cptree,'mode','graph')
+
+%%
+% 1. 计算剪枝后决策树的重采样误差和交叉验证误差
+resubPrune = resubLoss(cptree)
+lossPrune = kfoldLoss(crossval(cptree))
+
+
+##### SOURCE END #####
+--></body></html>

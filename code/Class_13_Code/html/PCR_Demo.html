@@ -1,0 +1,192 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>PCR_Demo</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-11-22"><meta name="DC.source" content="PCR_Demo.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;</a></li><li><a href="#2">II. &#23548;&#20837;&#25968;&#25454;</a></li><li><a href="#3">III. &#38543;&#26426;&#21010;&#20998;&#35757;&#32451;&#38598;&#19982;&#27979;&#35797;&#38598;</a></li><li><a href="#6">IV. &#20027;&#25104;&#20998;&#20998;&#26512;</a></li><li><a href="#9">V. &#20027;&#25104;&#20998;&#22238;&#24402;&#27169;&#22411;</a></li><li><a href="#12">VI. &#32467;&#26524;&#20998;&#26512;&#19982;&#32472;&#22270;</a></li></ul></div><h2>I. &#28165;&#31354;&#29615;&#22659;&#21464;&#37327;<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>
+clc
+</pre><h2>II. &#23548;&#20837;&#25968;&#25454;<a name="2"></a></h2><pre class="codeinput">load <span class="string">spectra</span>;
+</pre><h2>III. &#38543;&#26426;&#21010;&#20998;&#35757;&#32451;&#38598;&#19982;&#27979;&#35797;&#38598;<a name="3"></a></h2><pre class="codeinput">temp = randperm(size(NIR, 1));
+</pre><p>1. &#35757;&#32451;&#38598;&#8212;&#8212;50&#20010;&#26679;&#26412;</p><pre class="codeinput">P_train = NIR(temp(1:50),:);
+T_train = octane(temp(1:50),:);
+</pre><p>2. &#27979;&#35797;&#38598;&#8212;&#8212;10&#20010;&#26679;&#26412;</p><pre class="codeinput">P_test = NIR(temp(51:end),:);
+T_test = octane(temp(51:end),:);
+</pre><h2>IV. &#20027;&#25104;&#20998;&#20998;&#26512;<a name="6"></a></h2><p>1. &#20027;&#25104;&#20998;&#36129;&#29486;&#29575;&#20998;&#26512;</p><pre class="codeinput">[PCALoadings,PCAScores,PCAVar] = princomp(NIR);
+figure
+percent_explained = 100 * PCAVar / sum(PCAVar);
+pareto(percent_explained)
+xlabel(<span class="string">'&#20027;&#25104;&#20998;'</span>)
+ylabel(<span class="string">'&#36129;&#29486;&#29575;(%)'</span>)
+title(<span class="string">'&#20027;&#25104;&#20998;&#36129;&#29486;&#29575;'</span>)
+</pre><img vspace="5" hspace="5" src="PCR_Demo_01.png" alt=""> <p>2. &#31532;&#19968;&#20027;&#25104;&#20998;vs.&#31532;&#20108;&#20027;&#25104;&#20998;</p><pre class="codeinput">[PCALoadings,PCAScores,PCAVar] = princomp(P_train);
+figure
+plot(PCAScores(:,1),PCAScores(:,2),<span class="string">'r+'</span>)
+hold <span class="string">on</span>
+[PCALoadings_test,PCAScores_test,PCAVar_test] = princomp(P_test);
+plot(PCAScores_test(:,1),PCAScores_test(:,2),<span class="string">'o'</span>)
+xlabel(<span class="string">'1st Principal Component'</span>)
+ylabel(<span class="string">'2nd Principal Component'</span>)
+legend(<span class="string">'Training Set'</span>,<span class="string">'Testing Set'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>)
+</pre><img vspace="5" hspace="5" src="PCR_Demo_02.png" alt=""> <h2>V. &#20027;&#25104;&#20998;&#22238;&#24402;&#27169;&#22411;<a name="9"></a></h2><p>1. &#21019;&#24314;&#27169;&#22411;</p><pre class="codeinput">k = 4;
+betaPCR = regress(T_train-mean(T_train),PCAScores(:,1:k));
+betaPCR = PCALoadings(:,1:k) * betaPCR;
+betaPCR = [mean(T_train)-mean(P_train) * betaPCR;betaPCR];
+</pre><p>2. &#39044;&#27979;&#25311;&#21512;</p><pre class="codeinput">N = size(P_test,1);
+T_sim = [ones(N,1) P_test] * betaPCR;
+</pre><h2>VI. &#32467;&#26524;&#20998;&#26512;&#19982;&#32472;&#22270;<a name="12"></a></h2><p>1. &#30456;&#23545;&#35823;&#24046;error</p><pre class="codeinput">error = abs(T_sim - T_test) ./ T_test;
+</pre><p>2. &#20915;&#23450;&#31995;&#25968;R^2</p><pre class="codeinput">R2 = (N * sum(T_sim .* T_test) - sum(T_sim) * sum(T_test))^2 / ((N * sum((T_sim).^2) - (sum(T_sim))^2) * (N * sum((T_test).^2) - (sum(T_test))^2));
+</pre><p>3. &#32467;&#26524;&#23545;&#27604;</p><pre class="codeinput">result = [T_test T_sim error]
+</pre><pre class="codeoutput">
+result =
+
+   87.0000   86.8053    0.0022
+   85.5000   85.3947    0.0012
+   88.6500   88.0991    0.0062
+   88.4000   87.9918    0.0046
+   84.7000   84.6877    0.0001
+   88.2500   87.7173    0.0060
+   88.0000   88.1574    0.0018
+   84.6000   84.4274    0.0020
+   88.8500   88.8830    0.0004
+   85.2500   84.8463    0.0047
+
+</pre><p>4. &#32472;&#22270;</p><pre class="codeinput">figure
+plot(1:N,T_test,<span class="string">'b:*'</span>,1:N,T_sim,<span class="string">'r-o'</span>)
+legend(<span class="string">'&#30495;&#23454;&#20540;'</span>,<span class="string">'&#39044;&#27979;&#20540;'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>)
+xlabel(<span class="string">'&#39044;&#27979;&#26679;&#26412;'</span>)
+ylabel(<span class="string">'&#36763;&#28919;&#20540;'</span>)
+string = {<span class="string">'&#27979;&#35797;&#38598;&#36763;&#28919;&#20540;&#21547;&#37327;&#39044;&#27979;&#32467;&#26524;&#23545;&#27604;'</span>;[<span class="string">'R^2='</span> num2str(R2)]};
+title(string)
+</pre><img vspace="5" hspace="5" src="PCR_Demo_03.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+%% I. 清空环境变量
+clear all
+clc
+
+%% II. 导入数据
+load spectra;
+
+%% III. 随机划分训练集与测试集
+temp = randperm(size(NIR, 1));
+%%
+% 1. 训练集——50个样本
+P_train = NIR(temp(1:50),:);
+T_train = octane(temp(1:50),:);
+%%
+% 2. 测试集——10个样本
+P_test = NIR(temp(51:end),:);
+T_test = octane(temp(51:end),:);
+
+%% IV. 主成分分析
+%%
+% 1. 主成分贡献率分析
+[PCALoadings,PCAScores,PCAVar] = princomp(NIR);
+figure
+percent_explained = 100 * PCAVar / sum(PCAVar);
+pareto(percent_explained)
+xlabel('主成分')
+ylabel('贡献率(%)')
+title('主成分贡献率')
+
+%%
+% 2. 第一主成分vs.第二主成分
+[PCALoadings,PCAScores,PCAVar] = princomp(P_train);
+figure
+plot(PCAScores(:,1),PCAScores(:,2),'r+')
+hold on
+[PCALoadings_test,PCAScores_test,PCAVar_test] = princomp(P_test);
+plot(PCAScores_test(:,1),PCAScores_test(:,2),'o')
+xlabel('1st Principal Component')
+ylabel('2nd Principal Component')
+legend('Training Set','Testing Set','location','best')
+
+%% V. 主成分回归模型
+%%
+% 1. 创建模型
+k = 4;
+betaPCR = regress(T_train-mean(T_train),PCAScores(:,1:k));
+betaPCR = PCALoadings(:,1:k) * betaPCR;
+betaPCR = [mean(T_train)-mean(P_train) * betaPCR;betaPCR];
+%%
+% 2. 预测拟合
+N = size(P_test,1);
+T_sim = [ones(N,1) P_test] * betaPCR;
+
+%% VI. 结果分析与绘图
+%%
+% 1. 相对误差error
+error = abs(T_sim - T_test) ./ T_test;
+%%
+% 2. 决定系数R^2
+R2 = (N * sum(T_sim .* T_test) - sum(T_sim) * sum(T_test))^2 / ((N * sum((T_sim).^2) - (sum(T_sim))^2) * (N * sum((T_test).^2) - (sum(T_test))^2)); 
+%%
+% 3. 结果对比
+result = [T_test T_sim error]
+
+%% 
+% 4. 绘图
+figure
+plot(1:N,T_test,'b:*',1:N,T_sim,'r-o')
+legend('真实值','预测值','location','best')
+xlabel('预测样本')
+ylabel('辛烷值')
+string = {'测试集辛烷值含量预测结果对比';['R^2=' num2str(R2)]};
+title(string)
+
+
+
+##### SOURCE END #####
+--></body></html>
