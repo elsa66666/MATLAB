@@ -10,12 +10,12 @@ plot(x_coordinate,y_coordinate,'r-*')
 
 %% III. MATLAB程序调试
 % %%
-% % 1. Index must be a positive integer or logical.
-% A = [1 2 3 4 5];
-% A(0)
-% A(3.5)
-% A(-2)
-% 
+% 1. Index must be a positive integer or logical.
+A = [1 2 3 4 5];
+A(1)   % 数组的下标从1开始
+%A(3.5)
+%A(-2)
+
 % %%
 % % 2. Undefined function or variable 'B'.
 % B
