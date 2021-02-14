@@ -204,4 +204,3 @@ end
 rightridio=(kk-k)./kk;
 disp('ÕıÈ·ÂÊ')
 disp(rightridio);
-web browser www.matlabsky.com
